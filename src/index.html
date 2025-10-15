@@ -37,7 +37,7 @@
   <link rel="preload" href="./fonts/MozillaHeadline-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- Preload hero image -->
-  <link rel="preload" href="./assets/hero.jpg" as="image">
+  <link rel="preload" as="image" href="./assets/hero-960.avif" imagesrcset="./assets/hero-640.avif 640w, ./assets/hero-960.avif 960w, ./assets/hero-1280.avif 1280w" imagesizes="100vw" fetchpriority="high">
 
   <!-- Styles -->
   <link rel="stylesheet" href="./styles.css">
@@ -48,7 +48,7 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Safna Safna",
-    "email": "steini@101seafood.is"
+    "email": "sala@safnasafna.is"
   }
   </script>
 </head>
@@ -60,13 +60,27 @@
 
         <!-- Left Column - Product Image -->
         <div class="relative order-2 lg:order-none lg:col-span-5 lg:-ml-8 xl:absolute xl:inset-0 xl:right-1/2 xl:ml-0">
-          <img
-            src="./assets/hero.jpg"
-            alt="Poki af frosnum rækjum á marmaraborði"
-            width="800"
-            height="1000"
-            class="aspect-[1/1] md:aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full"
-          />
+          <picture>
+            <source
+              type="image/avif"
+              srcset="./assets/hero-640.avif 640w, ./assets/hero-960.avif 960w, ./assets/hero-1280.avif 1280w"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 640px"
+            />
+            <source
+              type="image/webp"
+              srcset="./assets/hero-640.webp 640w, ./assets/hero-960.webp 960w, ./assets/hero-1280.webp 1280w"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 640px"
+            />
+            <img
+              src="./assets/hero-960.webp"
+              alt="Poki af frosnum rækjum á marmaraborði"
+              width="800"
+              height="1000"
+              decoding="async"
+              fetchpriority="high"
+              class="aspect-[1/1] md:aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full"
+            />
+          </picture>
         </div>
 
         <!-- Right Column - Content -->

@@ -10,7 +10,10 @@
     "clean": "rm -rf dist && mkdir -p dist",
     "copy:files": "cp src/index.html dist/ && cp -r src/fonts dist/ && cp -r assets dist/"
   },
-  "keywords": ["fundraising", "iceland"],
+  "keywords": [
+    "fundraising",
+    "iceland"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {

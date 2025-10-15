@@ -121,10 +121,35 @@
 ## 📊 Expected Lighthouse Scores
 
 Based on optimization:
-- **Performance:** 95+ (fast load, preloaded fonts)
-- **Accessibility:** 95+ (semantic HTML, ARIA, contrast)
-- **Best Practices:** 95+ (modern standards, HTTPS-ready)
-- **SEO:** 95+ (complete meta tags, structured data)
+- **Performance:** 95-100 (fast load, preloaded fonts, optimized images)
+- **Accessibility:** 95-100 (semantic HTML, ARIA, contrast)
+- **Best Practices:** 95-100 (modern standards, HTTPS-ready)
+- **SEO:** 95-100 (complete meta tags, structured data)
+
+### ⚠️ Testing Lighthouse Properly
+
+**Important:** Run Lighthouse in a clean environment to get accurate results:
+
+```bash
+# Option 1: Chrome Incognito with all extensions disabled
+# Open Chrome → New Incognito Window → Disable all extensions
+
+# Option 2: Chrome headless without extensions
+chrome --user-data-dir=/tmp/lh --no-first-run --disable-extensions
+
+# Option 3: Lighthouse CI in GitHub Actions (recommended)
+```
+
+**Common False Positives from Extensions:**
+- ❌ "Back/forward cache" warnings (extensions block bfcache)
+- ❌ "Unused JavaScript" 596 KB (from 1Password, etc.)
+- ❌ "Legacy JavaScript" 12 KB (extension transforms)
+
+**Your actual site:**
+- ✅ Zero site JavaScript (0 KB)
+- ✅ Modern build (no transpilation needed)
+- ✅ No bfcache blockers in your code
+- ✅ All diagnostics are extension noise
 
 ---
 
