@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DM Mono Regular */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/DMMono-Regular.woff2') format('woff2');
+}
+
+/* DM Mono Medium */
+@font-face {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./fonts/DMMono-Medium.woff2') format('woff2');
+}
+
+/* Mozilla Headline SemiBold */
+@font-face {
+  font-family: 'Mozilla Headline';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./fonts/MozillaHeadline-SemiBold.woff2') format('woff2');
+}
+
+/* Mozilla Headline Bold */
+@font-face {
+  font-family: 'Mozilla Headline';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/MozillaHeadline-Bold.woff2') format('woff2');
+}
+
+@layer base {
+  /* Focus visible styles for keyboard navigation */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-black;
+  }
+}
+
+@layer utilities {
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+* {
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  * {
+    font-size: 16px;
+  }
+}

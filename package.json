@@ -1,0 +1,21 @@
+{
+  "name": "safnasafna",
+  "version": "1.0.0",
+  "description": "Safna Safna - Hagkvæmar og vinsælar fjáröflanir",
+  "scripts": {
+    "serve": "npx serve dist",
+    "dev": "npm run build:css -- --watch",
+    "build": "npm run clean && npm run build:css && npm run copy:files",
+    "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
+    "clean": "rm -rf dist && mkdir -p dist",
+    "copy:files": "cp src/index.html dist/ && cp -r src/fonts dist/ && cp -r assets dist/"
+  },
+  "keywords": ["fundraising", "iceland"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.0"
+  }
+}
